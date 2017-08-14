@@ -6,13 +6,14 @@
         "start": "webpack --watch"
     },
     "dependencies": {
+        "antd": "^2.12.6",
         "autoprefixer": "^7.1.2",
         "babel-runtime": "^6.25.0",
         "classnames": "^2.2.5",
         "dva": "^1.2.1",
         "postcss-loader": "^2.0.6",
-        "react": "^0.14.5",
-        "react-dom": "^0.14.5"
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1"
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
@@ -20,7 +21,7 @@
         "babel-eslint": "^7.1.1",
         "babel-loader": "^7.1.1",
         "babel-plugin-dva-hmr": "^0.3.2",
-        "babel-plugin-import": "^1.2.1",
+        "babel-plugin-import": "^1.4.0",
         "babel-plugin-transform-react-jsx": "^6.24.1",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.4",

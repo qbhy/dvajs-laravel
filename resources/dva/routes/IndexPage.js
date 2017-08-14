@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
 import styles from './indexPage.scss';
+import {Link} from 'dva/router';
 
 
 class IndexPage extends Component {
@@ -25,11 +26,11 @@ class IndexPage extends Component {
             <div className={styles.container}>
                 <img src={require('../assets/qbhy.png')}/>
                 <h2>dvajs for php</h2>
+                <Link to="/articles">去文章列表</Link>
             </div>
         );
     }
 }
 
-IndexPage.propTypes = {};
 
 export default connect(state => state)(IndexPage);

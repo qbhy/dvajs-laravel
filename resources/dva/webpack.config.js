@@ -41,16 +41,23 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(scss|css)$/,
+                test: /\.(css)$/,
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader', 'postcss-loader'],
+                    fallback: 'style-loader',
+                }),
+            },
+            {
+                test: /\.(scss)$/,
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
                             loader: 'css-loader',
                             options: {
+                                sourceMap: true,
                                 modules: true,
                                 importLoaders: 1,
                                 localIdentName: '[local]_[hash:base64:5]',
-                                sourceMap: true,
                                 minimize: true
                             },
                         },

@@ -1,9 +1,16 @@
 {
-    "presets": [
-        "react"
-    ],
-    "plugins": [
-        "transform-react-jsx",
-        "react-hot-loader/babel"
+  "presets": [
+    "react"
+  ],
+  "plugins": [
+    "transform-react-jsx",
+    "react-hot-loader/babel",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
+      }
     ]
+  ]
 }

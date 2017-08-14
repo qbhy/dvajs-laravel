@@ -1,10 +1,12 @@
 import React from 'react';
 import {Router, Route} from 'dva/router';
 import Index from './routes/IndexPage';
+import Articles from './routes/articles';
 
 export const routes = (
     <div>
-        <Route path="/example.php" component={Index}/>
+        <Route path="/articles" component={Articles}/>
+        <Route path="*" component={Index}/>
     </div>
 );
 
