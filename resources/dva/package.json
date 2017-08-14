@@ -1,0 +1,42 @@
+{
+    "name": "dvajs-php",
+    "version": "0.0.1",
+    "scripts": {
+        "build": "webpack",
+        "start": "webpack --watch"
+    },
+    "dependencies": {
+        "autoprefixer": "^7.1.2",
+        "babel-runtime": "^6.25.0",
+        "classnames": "^2.2.5",
+        "dva": "^1.2.1",
+        "postcss-loader": "^2.0.6",
+        "react": "^0.14.5",
+        "react-dom": "^0.14.5"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.1.1",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-dva-hmr": "^0.3.2",
+        "babel-plugin-import": "^1.2.1",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.4",
+        "eslint": "^3.12.2",
+        "eslint-config-airbnb": "^13.0.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-jsx-a11y": "^2.2.3",
+        "eslint-plugin-react": "^6.8.0",
+        "expect": "^1.20.2",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "file-loader": "^0.11.2",
+        "jsx-loader": "^0.13.2",
+        "node-sass": "^4.5.3",
+        "react-hot-loader": "^3.0.0-beta.7",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.18.2",
+        "webpack": "^3.5.3"
+    }
+}
