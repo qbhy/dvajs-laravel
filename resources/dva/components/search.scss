@@ -1,0 +1,55 @@
+
+.searchBox {
+    position: relative;
+    width: 900px;
+    height: 34px;
+    overflow: hidden;
+
+    .searchable {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        border-bottom: 1px solid #fff;
+        transition: all .5s ease-in-out;
+        left: 0;
+
+        &.hide {
+            left: 900 - 38px;
+            border-bottom: none;
+        }
+
+        input {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: #fff;
+            padding-left: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 3px 7px;
+            outline: none;
+
+            &:disabled {
+                color: #ccc;
+            }
+
+            &.icon {
+                i {
+                    color: #fff;
+                    font-size: 24px;
+                }
+            }
+        }
+
+    }
+}

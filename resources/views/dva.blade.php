@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

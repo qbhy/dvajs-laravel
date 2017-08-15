@@ -8,6 +8,7 @@ import 'antd/dist/antd.css';
 export const routes = (
     <div>
         <Route path="/articles" component={Articles}/>
+        <Route path="/" component={Articles}/>
         <Route path="*" component={Index}/>
     </div>
 );

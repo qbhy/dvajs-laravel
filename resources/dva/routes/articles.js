@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
-import styles from './indexPage.scss';
+import styles from './articles.scss';
 import {Link} from 'dva/router';
+import Profile from '../components/profile';
+import Search from '../components/search';
+import SimpleArticle from '../components/simpleArticle';
 import {
     Button,
     Icon,
     message,
-    Modal
 } from 'antd';
 
 
@@ -27,12 +29,18 @@ class Articles extends Component {
         const {user} = this.props;
         return (
             <div>
-                <Button>按钮</Button>
-                <div className={styles.container}>
-                    <Icon type="step-backward"/>
-                    <span>文章列表页面</span>
-                    <Link to="/">去首页</Link>
-                    <Button>button</Button>
+                <Profile user={user}/>
+                <div className={styles.contentBox}>
+
+                    <div className={styles.header}>
+                        <div className={styles.actions}>
+                            <Search placeholder="请输入关键词进行搜索" onSearch={(text) => {
+                                console.log(text);
+                            }}/>
+                        </div>
+                        <h2>{user.name}的博客</h2>
+                    </div>
+
                 </div>
             </div>
         );
