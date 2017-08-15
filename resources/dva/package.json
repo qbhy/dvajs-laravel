@@ -3,11 +3,12 @@
     "version": "0.0.1",
     "scripts": {
         "build": "webpack",
-        "start": "webpack --watch"
+        "start": "webpack --watch --env=dev"
     },
     "dependencies": {
         "antd": "^2.12.6",
         "autoprefixer": "^7.1.2",
+        "babel-polyfill": "^6.23.0",
         "babel-runtime": "^6.25.0",
         "classnames": "^2.2.5",
         "dva": "^1.2.1",
@@ -23,6 +24,7 @@
         "babel-plugin-dva-hmr": "^0.3.2",
         "babel-plugin-import": "^1.4.0",
         "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.4",
         "eslint": "^3.12.2",

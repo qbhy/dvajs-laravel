@@ -2,6 +2,8 @@ import React from 'react';
 import {Router, Route} from 'dva/router';
 import Index from './routes/IndexPage';
 import Articles from './routes/articles';
+import 'antd/dist/antd.css';
+
 
 export const routes = (
     <div>

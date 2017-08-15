@@ -1,4 +1,4 @@
 <?php
 
-Route::get('/{a?}/{b?}/{c?}', 'DvaController@dva')->name('dva');
+Route::get('/{url?}', 'DvaController@dva')->name('dva')->where('url', '.+');
 

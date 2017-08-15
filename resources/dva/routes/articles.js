@@ -18,7 +18,7 @@ class Articles extends Component {
 
     componentDidMount() {
         setTimeout(() => {
-            message.success('出现错误啦?');
+            message.success('消息消息?');
         }, 1000);
     }
 
@@ -28,14 +28,12 @@ class Articles extends Component {
         return (
             <div>
                 <Button>按钮</Button>
-                {/*<Modal visible={true} title="文章列表">*/}
-                    <div className={styles.container}>
-                        <Icon type="step-backward"/>
-                        <span>文章列表页面</span>
-                        <Link to="/">去首页</Link>
-                        <Button>button</Button>
-                    </div>
-                {/*</Modal>*/}
+                <div className={styles.container}>
+                    <Icon type="step-backward"/>
+                    <span>文章列表页面</span>
+                    <Link to="/">去首页</Link>
+                    <Button>button</Button>
+                </div>
             </div>
         );
     }
