@@ -41,6 +41,13 @@ class Articles extends Component {
                         <h2>{user.name}的博客</h2>
                     </div>
 
+                    <div className={styles.articlesBox}>
+                        {user.articles.map((article, index) => (
+                            <SimpleArticle article={article} key={index}/>
+                        ))}
+                    </div>
+
+
                 </div>
             </div>
         );

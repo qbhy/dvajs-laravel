@@ -29,6 +29,7 @@
             color: #fff;
             padding-left: 15px;
             font-size: 16px;
+            height: 34px;
         }
 
         button {
@@ -38,6 +39,7 @@
             cursor: pointer;
             padding: 3px 7px;
             outline: none;
+            font-size: 18px;
 
             &:disabled {
                 color: #ccc;

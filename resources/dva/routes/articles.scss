@@ -10,7 +10,8 @@
     align-items: center;
 
     .header {
-        background: url("http://www.79n.cn/uploads/allimg/150810/1-150Q0231Z0.jpg") center no-repeat;
+        background: url("../assets/banner.jpg") no-repeat;
+        background-position: top center;
         background-size: 100%;
         width: 100%;
         height: 480px;
@@ -32,6 +33,11 @@
             text-align: center;
             width: 100%;
         }
+    }
+
+    .articlesBox {
+        width: 900px;
+        margin: 0 auto;
     }
 
 }

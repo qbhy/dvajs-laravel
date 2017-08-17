@@ -18,10 +18,6 @@ class Search extends Component {
         this.setState({open: open});
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
-
     handleSearch() {
         const {text} = this.state;
         if (text === '') {
@@ -42,10 +38,8 @@ class Search extends Component {
             });
         return (
             <div className={styles.searchBox}>
-                <form onBlur={() => this.toggleSwitch(false)}
-                      onSubmit={() => this.handleSearch()}
+                <form onSubmit={(e) => e.preventDefault() || this.handleSearch()}
                       className={searchClass}>
-
                     <button type="button" onClick={() => this.toggleSwitch(!open)} className={styles.icon}>
                         <Icon type="search"/>
                     </button>
