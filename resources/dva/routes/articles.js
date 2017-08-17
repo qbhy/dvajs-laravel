@@ -27,6 +27,7 @@ class Articles extends Component {
 
     render() {
         const {user} = this.props;
+        console.log(user);
         return (
             <div>
                 <Profile user={user}/>
@@ -42,9 +43,9 @@ class Articles extends Component {
                     </div>
 
                     <div className={styles.articlesBox}>
-                        {user.articles.map((article, index) => (
-                            <SimpleArticle article={article} key={index}/>
-                        ))}
+                        {user.articles.map((article, index) => {
+                            return <SimpleArticle article={article} key={index}/>
+                        })}
                     </div>
 
 

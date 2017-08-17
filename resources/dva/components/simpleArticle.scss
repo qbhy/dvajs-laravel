@@ -1,0 +1,48 @@
+$ant-color: #108ee9;
+
+.articleBox {
+    width: 100%;
+    background: #fff;
+    padding: 30px 40px;
+    margin-bottom: 60px;
+
+    header {
+        h3 {
+            a {
+                font-size: 24px;
+                color: #000;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+        .time {
+            padding: 7px 0;
+        }
+
+    }
+
+    section.articleContentBox {
+        padding: 20px 0;
+        div.content {
+            line-height: 24px;
+            font-size: 15px;
+        }
+    }
+
+    footer.footerBox {
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        a {
+            text-decoration: none;
+            line-height: 40px;
+            padding: 0 10px;
+            border-radius: 1px;
+
+            &:hover {
+                color: $ant-color;
+                background: #efefef;
+            }
+        }
+    }
+}
