@@ -43,7 +43,6 @@ class Search extends Component {
                     <button type="button" onClick={() => this.toggleSwitch(!open)} className={styles.icon}>
                         <Icon type="search"/>
                     </button>
-
                     <input value={text} type="search"
                            onChange={this.onChange.bind(this)}
                            placeholder={placeholder}/>

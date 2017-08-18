@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import styles from './simpleArticle.scss';
 import {Link} from 'dva/router';
+import route from '../utils/route';
 import {
     Icon
 } from 'antd';
-
 
 
 export default class SimpleArticle extends Component {
@@ -18,7 +18,7 @@ export default class SimpleArticle extends Component {
         return (
             <article className={styles.articleBox}>
                 <header>
-                    <h3><Link to="#">{article.title}</Link></h3>
+                    <h3><Link to={route('article', {id: article.id})}>{article.title}</Link></h3>
                     <p className={styles.time}>{article.updatedAt}</p>
                 </header>
                 <section className={styles.articleContentBox}>
