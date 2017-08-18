@@ -12,16 +12,15 @@ export default {
         add(state, {article}){
             state.list[article.id] = article;
             state.activeIndex = article.id;
-            console.log(state);
-            return state;
+            state.loading = false;
+            return {...state};
         },
         go(state, {index}){
             if (state.list[index]) {
                 state.activeIndex = index;
             } else {
-                console.log('文章不存在');
             }
-            return state;
+            return {...state};
         }
     },
     effects: {

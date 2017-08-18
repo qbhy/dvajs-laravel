@@ -4,6 +4,7 @@
   ],
   "plugins": [
     "transform-react-jsx",
+    "transform-runtime",
     "react-hot-loader/babel"
   ]
 }
