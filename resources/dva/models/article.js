@@ -13,7 +13,7 @@ export default {
             state.list[article.id] = article;
             state.activeIndex = article.id;
             console.log(state);
-            return state;
+            return {list: state.list, activeIndex: state.activeIndex, loading: false};
         },
         go(state, {index}){
             if (state.list[index]) {
@@ -24,8 +24,7 @@ export default {
             return state;
         }
     },
-    effects: {
-    },
+    effects: {},
     subscriptions: {}
 
 };
