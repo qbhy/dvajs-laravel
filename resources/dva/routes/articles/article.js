@@ -58,9 +58,7 @@ class Article extends Component {
                     </section>
                     <footer className={styles.footerBox}>
                         <div className={styles.actions}>
-                            <Popover placement="left" content={content} title="Title" trigger="hover">
-                                <a href="javascript:;" className={styles.share}><Icon type="share-alt"/></a>
-                            </Popover>
+                            <a href="javascript:;" className={styles.share}><Icon type="share-alt"/></a>
                         </div>
                         <div className={styles.comments}>
                             {Article.renderComments(article.comments)}
