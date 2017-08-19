@@ -1,0 +1,49 @@
+.commentBox {
+    padding: 20px 25px 0;
+
+    .comment {
+        padding: 10px 0 30px;
+        display: flex;
+
+        .avatar {
+            height: 35px;
+            width: 35px;
+            border-radius: 17.5px;
+            overflow: hidden;
+            margin-right: 25px;
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .info {
+            flex: 1;
+
+            .header {
+                font-size: 16px;
+                font-weight: bold;
+                color: #000;
+
+                span.time {
+                    font-weight: normal;
+                    font-size: 14px;
+                    color: #999;
+                    padding-left: 9px;
+                }
+            }
+
+            .content {
+                color: #757575;
+                font-size: 15px;
+                padding-top: 5px;
+            }
+
+        }
+    }
+
+    .footer {
+        border-bottom: 1px dashed rgba(#999, 0.54);
+    }
+}

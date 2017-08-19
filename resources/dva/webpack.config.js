@@ -4,13 +4,14 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        server: './lib/server.js',
-        app: './lib/client.js',
+        server: ["babel-polyfill", './lib/server.js'],
+        app: ["babel-polyfill", './lib/client.js'],
     },
     output: {
         path: __dirname + "/../../public/dva",
         filename: '[name].js'
     },
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {
@@ -20,11 +21,8 @@ module.exports = {
                 ],
                 use: [
                     {
-                        loader: 'react-hot-loader/webpack',
-                    },
-                    {
-                        loader: 'babel-loader',
-                    },
+                        loader: 'babel-loader',// cacheDirectory: true
+                    }
                 ]
             },
             {
@@ -76,23 +74,25 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("app.css"),
         new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
         // new webpack.HotModuleReplacementPlugin() // 启用 HMR
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: ['polyfills', 'vendor'].reverse()
         // }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
-
-            beautify: false,
-            mangle: {
-                screw_ie8: true,
-                keep_fnames: true
-            },
-            compress: {
-                screw_ie8: true
-            },
-            comments: false
-        })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     sourceMap: process.env.NODE_ENV !== 'production',
+        //     // beautify: false,
+        //     // mangle: {
+        //     //     screw_ie8: true,
+        //     //     keep_fnames: true
+        //     // },
+        //     // compress: {
+        //     //     screw_ie8: true
+        //     // },
+        //     // comments: false
+        // })
     ]
 }
 ;

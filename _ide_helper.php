@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.32 on 2017-08-15.
+ * Generated for Laravel 5.4.32 on 2017-08-19.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11591,6 +11591,27 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace GrahamCampbell\Markdown\Facades { 
+
+    class Markdown {
+        
+        /**
+         * Converts CommonMark to HTML.
+         *
+         * @param string $commonMark
+         * @return string 
+         * @api 
+         * @static 
+         */ 
+        public static function convertToHtml($commonMark)
+        {
+            return \League\CommonMark\Converter::convertToHtml($commonMark);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13654,6 +13675,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Markdown extends \GrahamCampbell\Markdown\Facades\Markdown {}
  
 }
 
