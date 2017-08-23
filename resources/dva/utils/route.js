@@ -1,5 +1,5 @@
 import is from 'is_js';
-import routes from '../routes/index';
+import routes from '../routes/config';
 
 export function getValue(json, key) {
     for (let attr in json) {
