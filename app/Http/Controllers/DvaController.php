@@ -58,4 +58,9 @@ ServerAliveCountMax 3  ＃client发出请求后，服务器端没有响应得次
     }
 
 
+    public function test(Request $request)
+    {
+        dd($request->route()->getName());
+    }
+
 }

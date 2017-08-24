@@ -14,3 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::post('/fetchArticle', 'ArticleController@fetchArticle')->name('fetchArticle');
+Route::post('/aaa', function(){
+    return 'aaa';
+})->name('aaa');
