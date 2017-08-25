@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
 import styles from './articleList.scss';
-import {Link} from 'dva/router';
-import Profile from '../../components/profile';
-import Search from '../../components/search';
 import SimpleArticle from '../../components/simpleArticle';
-import {
-    Button,
-    Icon,
-    message,
-} from 'antd';
 
 
 class ArticleList extends Component {
@@ -18,13 +10,19 @@ class ArticleList extends Component {
         super(props);
     }
 
+    static renderArticles(articles) {
+        const dom = [];
+        for (let key in articles) {
+            dom.push(<SimpleArticle key={key} article={articles[key]}/>);
+        }
+        return dom;
+    }
+
     render() {
-        const {user} = this.props;
+        const {article} = this.props;
         return (
             <div className={styles.articlesBox}>
-                {user.articles.map((article, index) => {
-                    return <SimpleArticle article={article} key={index}/>
-                })}
+                {ArticleList.renderArticles(article.list)}
             </div>
         );
     }

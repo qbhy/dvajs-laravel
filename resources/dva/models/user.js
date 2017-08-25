@@ -1,6 +1,6 @@
 export default {
     namespace: 'user',
-    state: [],
+    state: {},
     reducers: {
         save(state, {payload}) {
             return payload;

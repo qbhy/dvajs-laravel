@@ -15,10 +15,14 @@ class Article extends Component {
 
     getArticle() {
         const articleModel = this.props.article;
-        if (articleModel.activeIndex !== null && articleModel.list[articleModel.activeIndex]) {
-            return articleModel.list[articleModel.activeIndex];
-        }
         const id = this.props.params.id;
+        const article = articleModel.list[id];
+        if (id && article) {
+            if (articleModel.activeIndex === null) {
+                this.props.dispatch({type: 'article/add', article});
+            }
+            return article;
+        }
         fetchArticle(id).then(article => {
             this.props.dispatch({type: 'article/add', article});
         });

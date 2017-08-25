@@ -2,26 +2,45 @@
 
 namespace App\Dva;
 
+use App\User;
 use Illuminate\Http\Request;
 use Qbhy\DvaJs\DvaJs;
+use Auth;
 
 class Dva
 {
-    public static function render($path, Request $request, DvaJs $dva)
+    public static function render($title, $url, $state)
     {
-        $fn = [self::class, $request->route()->getName()];
-        if (is_callable($fn)) {
-
-        }
-        switch ($path) {
-            case '/articles':
-                return self::articles($request);
-                break;
-        }
+        $dva = new DvaJs(file_get_contents(public_path('dva/server.js')));
+        $self = Auth::user();
+        $data = [
+            'url' => $url,
+            'initialState' => [
+                'self' => self::renderSelf($self),
+                'user' => [
+                    'name' => '桥边红药',
+                    'age' => 18,
+                ]
+            ]
+        ];
+        $data['initialState'] = array_merge($data['initialState'], $state);
+        $html = $dva->render($data);
+        return view('dva', compact('html', 'title'));
     }
 
-    public static function articles(Request $request)
+    /**
+     * @param User|null $self
+     * @return array|null
+     */
+    private static function renderSelf($self)
     {
-        return '';
+        if (is_null($self)) {
+            return null;
+        }
+        return [
+            'name' => $self->name
+        ];
     }
+
+
 }

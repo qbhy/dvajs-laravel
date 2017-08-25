@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import styles from './profile.scss';
 import {Icon} from 'antd';
+import {Link} from 'dva/router';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -12,9 +13,9 @@ export default class Profile extends Component {
         return (
             <div className={styles.profileBox}>
                 <div className={styles.head}>
-                    <a href="#" className={styles.avatar}>
+                    <Link to="/" className={styles.avatar}>
                         <img src={require('../assets/qbhy.png')}/>
-                    </a>
+                    </Link>
                     <h3 className={styles.name}>{user.name}</h3>
                 </div>
                 <div className={styles.actions}>

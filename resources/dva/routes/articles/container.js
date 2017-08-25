@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
 import styles from './container.scss';
-import {Link} from 'dva/router';
 import Profile from '../../components/profile';
 import Search from '../../components/search';
-import SimpleArticle from '../../components/simpleArticle';
-import {
-    Button,
-    Icon,
-    message,
-} from 'antd';
 
 
 class Articles extends Component {
