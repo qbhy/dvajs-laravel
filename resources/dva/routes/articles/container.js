@@ -11,16 +11,11 @@ class Articles extends Component {
         super(props);
     }
 
-    componentDidMount() {
-
-    }
-
-
     render() {
-        const {user, children} = this.props;
+        const {owner, children} = this.props;
         return (
             <div>
-                <Profile user={user}/>
+                <Profile user={owner}/>
                 <div className={styles.contentBox}>
 
                     <div className={styles.header}>
@@ -29,7 +24,7 @@ class Articles extends Component {
                                 console.log(text);
                             }}/>
                         </div>
-                        <h2>{user.name}的博客</h2>
+                        <h2>{owner.name}的博客</h2>
                     </div>
                     {children}
                 </div>

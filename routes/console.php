@@ -16,3 +16,11 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('blog:init', function () {
+    \App\User::create([
+        'name' => 'qbhy',
+        'password' => Hash::make('password'),
+        'email' => '96qbhy@gmail.com'
+    ]);
+})->describe('Display an inspiring quote');

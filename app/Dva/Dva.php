@@ -9,15 +9,15 @@ use Auth;
 
 class Dva
 {
-    public static function render($title, $url, $state)
+    public static function render($url, $title, $state)
     {
         $dva = new DvaJs(file_get_contents(public_path('dva/server.js')));
         $self = Auth::user();
         $data = [
             'url' => $url,
             'initialState' => [
-                'self' => self::renderSelf($self),
-                'user' => [
+                'user' => self::renderSelf($self),
+                'owner' => [
                     'name' => '桥边红药',
                     'age' => 18,
                 ]

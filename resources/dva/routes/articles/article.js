@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
 import styles from './article.scss';
-import fetchArticle from '../../services/fetchArticle';
+import fetchArticleService from '../../services/fetchArticle';
 import {Link} from 'dva/router';
 import {route, copyText} from '../../utils';
 import classNames from 'classnames';
@@ -23,7 +23,7 @@ class Article extends Component {
             }
             return article;
         }
-        fetchArticle(id).then(article => {
+        fetchArticleService(id).then(article => {
             this.props.dispatch({type: 'article/add', article});
         });
         return null;
@@ -42,12 +42,6 @@ class Article extends Component {
     render() {
         const article = this.getArticle(),
             loading = this.props.article.loading;
-        const content = (
-            <div>
-                <p>Content</p>
-                <p>Content</p>
-            </div>
-        );
 
         if (!loading && article) {
             return (

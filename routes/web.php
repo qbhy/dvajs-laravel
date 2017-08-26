@@ -1,5 +1,11 @@
 <?php
 
-Route::get('/test', 'DvaController@test')->name('test');
-Route::get('/{url?}', 'DvaController@dva')->name('dva')->where('url', '.+');
+
+Route::get('/', 'ArticleController@articles')->name('articles');
+Route::get('/articles', 'ArticleController@articles')->name('articles');
+
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+
+Route::get('/article/{id}', 'ArticleController@articleInfo')->name('articleInfo');
+//Route::get('/{url?}', 'DvaController@dva')->name('dva')->where('url', '.+');
 

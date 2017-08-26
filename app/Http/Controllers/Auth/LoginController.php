@@ -3,37 +3,28 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        if (Auth::check()) {
+            return redirect()->route('articles');
+        }
+        return dva($request->path(), '管理员登录');
+    }
+
+    public function apiLogin(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string|max:32',
+            'password' => 'required|string|max:64',
+        ]);
+        if (Auth::attempt($request->only(['name', 'password']), $request->has('remember'))) {
+            return ['msg' => 'success'];
+        }
+        return ['msg' => '登录失败，请检查用户名或者密码！'];
     }
 }
