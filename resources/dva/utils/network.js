@@ -1,9 +1,6 @@
 import request from 'axios';
 import {notification} from 'antd';
 
-function parseJSON(response) {
-    return response.data;
-}
 
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -18,7 +15,6 @@ function checkStatus(response) {
     throw error;
 }
 
-export default function (url, options = {}) {
-    return request.post(url, options)
-        .then(checkStatus);
+export default function (url, data = {}, options = {withCredentials: true}) {
+    return request.post(url, data, options).then(checkStatus);
 }
