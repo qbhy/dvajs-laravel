@@ -3,6 +3,7 @@ import {connect} from 'dva';
 import styles from './login.scss';
 import loginService from '../../services/login';
 import delay from '../../utils/delay';
+import fetch from '../../utils/network';
 import {
     Form,
     Input,
@@ -76,6 +77,14 @@ class NormalLoginForm extends Component {
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 class Login extends Component {
+    componentDidMount() {
+        delay(500).then(() => {
+            fetch('/api/session1').then(() => {
+                fetch('/api/session2');
+            });
+        });
+    }
+
     render() {
         return (
             <div className={styles.loginBox}>

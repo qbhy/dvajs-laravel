@@ -1,11 +1,10 @@
 {
   "presets": [
     "react",
-    "stage-2",
+    "stage-0",
     "es2015"
   ],
   "plugins": [
-    "transform-react-jsx",
     [
       "transform-runtime",
       {
@@ -13,6 +12,13 @@
         "polyfill": false,
         "regenerator": true,
         "moduleName": "babel-runtime"
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
       }
     ]
   ]

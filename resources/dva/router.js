@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, Route, IndexRoute} from 'dva/router';
 import route from './utils/route';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import './app.scss';
 
 import Index from './routes/IndexPage';

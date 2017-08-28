@@ -5,7 +5,7 @@ import fetchArticleService from '../../services/fetchArticle';
 import {Link} from 'dva/router';
 import {route, copyText} from '../../utils';
 import classNames from 'classnames';
-import {Icon, Popover} from 'antd';
+import {Icon, Popover, Tooltip} from 'antd';
 import Comment from '../../components/comment';
 
 class Article extends Component {
