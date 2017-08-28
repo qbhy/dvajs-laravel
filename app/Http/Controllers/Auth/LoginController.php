@@ -16,6 +16,12 @@ class LoginController extends Controller
         return dva($request->path(), '管理员登录');
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+
     public function apiLogin(Request $request)
     {
         $this->validate($request, [
@@ -23,7 +29,8 @@ class LoginController extends Controller
             'password' => 'required|string|max:64',
         ]);
         if (Auth::attempt($request->only(['name', 'password']), $request->has('remember'))) {
-            return ['msg' => 'success'];
+            $url = Auth::user()->isAdmin() ? url('/admin') : url('/');
+            return ['msg' => 'success', 'url' => $url];
         }
         return ['msg' => '登录失败，请检查用户名或者密码！'];
     }

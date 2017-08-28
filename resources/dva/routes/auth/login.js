@@ -20,12 +20,12 @@ class NormalLoginForm extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                loginService(values).then(({msg}) => {
+                loginService(values).then(({msg, url}) => {
                     if (msg === 'success') {
                         message.success('登录成功！');
                         delay(500).then(() => {
                             console.log(window.location);
-                            window.location.href = window.location.origin;
+                            window.location.href = url;
                         });
                     } else {
                         message.info(msg);
@@ -77,14 +77,6 @@ class NormalLoginForm extends Component {
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 class Login extends Component {
-    componentDidMount() {
-        delay(500).then(() => {
-            fetch('/api/session1').then(() => {
-                fetch('/api/session2');
-            });
-        });
-    }
-
     render() {
         return (
             <div className={styles.loginBox}>

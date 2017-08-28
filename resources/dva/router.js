@@ -1,7 +1,6 @@
 import React from 'react';
 import {Router, Route, IndexRoute} from 'dva/router';
 import route from './utils/route';
-// import 'antd/dist/antd.css';
 import './app.scss';
 
 import Index from './routes/IndexPage';
@@ -9,6 +8,8 @@ import Articles from './routes/articles/container';
 import ArticleList from './routes/articles/articleList';
 import Article from './routes/articles/article';
 import Login from './routes/auth/login';
+import Admin from './routes/admin/admin';
+import AdminHome from './routes/admin/adminHome';
 
 
 export const routes = (
@@ -21,6 +22,10 @@ export const routes = (
         </Route>
 
         <Route path={route('login')} component={Login}/>
+
+        <Route path={route('adminHome')} component={Admin}>
+            <IndexRoute component={AdminHome}/>
+        </Route>
 
         <Route path="*" component={Index}/>
     </div>

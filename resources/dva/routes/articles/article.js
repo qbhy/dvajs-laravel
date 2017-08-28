@@ -7,6 +7,7 @@ import {route, copyText} from '../../utils';
 import classNames from 'classnames';
 import {Icon, Popover, Tooltip} from 'antd';
 import Comment from '../../components/comment';
+import ReactMarkdown from 'react-markdown';
 
 class Article extends Component {
     constructor(props) {
@@ -51,8 +52,9 @@ class Article extends Component {
                         <p className={styles.time}>{article.updatedAt}</p>
                     </header>
                     <section className={styles.articleContentBox}>
-                        <div className={classNames(styles.content, "markdown-body")}
-                             dangerouslySetInnerHTML={{__html: article.content}}/>
+                        <div className={classNames(styles.content, "markdown-body")}>
+                            <ReactMarkdown source={article.content}/>
+                        </div>
                     </section>
                     <footer className={styles.footerBox}>
                         <div className={styles.actions}>

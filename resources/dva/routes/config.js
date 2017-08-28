@@ -2,5 +2,8 @@ export default {
     home: '/',
     login: '/login',
     articles: '/articles',
-    article: '/article/:id'
+    article: '/article/:id',
+    admin: {
+        adminHome: '/admin'
+    }
 };

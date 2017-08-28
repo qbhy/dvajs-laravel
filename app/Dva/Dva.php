@@ -13,14 +13,12 @@ class Dva
     {
         $dva = new DvaJs(file_get_contents(public_path('dva/server.js')));
         $self = Auth::user();
+        $blogConfig = config('blog');
         $data = [
             'url' => $url,
             'initialState' => [
-                'user' => self::renderSelf($self),
-                'owner' => [
-                    'name' => '桥边红药',
-                    'age' => 18,
-                ]
+                'user' => self::renderSelf($self, $blogConfig),
+                'owner' => $blogConfig
             ]
         ];
         $data['initialState'] = array_merge($data['initialState'], $state);
@@ -30,15 +28,17 @@ class Dva
 
     /**
      * @param User|null $self
+     * @param array $blogConfig
      * @return array|null
      */
-    private static function renderSelf($self)
+    private static function renderSelf($self, $blogConfig)
     {
         if (is_null($self)) {
             return null;
         }
         return [
-            'name' => $self->name
+            'name' => $self->name,
+            'isAdmin' => $blogConfig['email'] === $self->email
         ];
     }
 

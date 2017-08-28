@@ -7,6 +7,8 @@ $ant-color: #108ee9;
     height: 100%;
     width: 280px;
     background: #f7f7f7;
+    z-index: 99;
+    box-shadow: 0 0 5px #ccc;
 
     .head {
         display: flex;

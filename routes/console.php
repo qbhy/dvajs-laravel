@@ -18,9 +18,11 @@ Artisan::command('inspire', function () {
 })->describe('Display an inspiring quote');
 
 Artisan::command('blog:init', function () {
+    $blogConfig = config('blog');
     \App\User::create([
-        'name' => 'qbhy',
-        'password' => Hash::make('password'),
-        'email' => '96qbhy@gmail.com'
+        'name' => $blogConfig['name'],
+        'password' => Hash::make($blogConfig['password']),
+        'email' => $blogConfig['email'],
+        'role' => \App\User::$roles['admin']
     ]);
 })->describe('Display an inspiring quote');
