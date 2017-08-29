@@ -10,6 +10,7 @@ import Article from './routes/articles/article';
 import Login from './routes/auth/login';
 import Admin from './routes/admin/admin';
 import AdminHome from './routes/admin/adminHome';
+import PublishArticle from './routes/admin/publishArticle';
 
 
 export const routes = (
@@ -25,6 +26,7 @@ export const routes = (
 
         <Route path={route('adminHome')} component={Admin}>
             <IndexRoute component={AdminHome}/>
+            <Route path={route('publishArticle')} component={PublishArticle}/>
         </Route>
 
         <Route path="*" component={Index}/>

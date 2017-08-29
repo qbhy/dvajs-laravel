@@ -1,0 +1,47 @@
+.adminBox {
+    display: flex;
+    height: 100%;
+    min-height: 500px;
+
+    .mainBox {
+        flex: 1;
+        background: #f7f7f7;
+
+        .headerBox {
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: #fff;
+
+            .switchMenu {
+                display: flex;
+                height: 50px;
+                width: 50px;
+                transition: all .3s ease;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+
+                &:hover {
+                    background: rgba(#108ee9, .2);
+                }
+
+                i {
+                    font-size: 16px;
+                }
+            }
+
+            .actionsBox {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 50px;
+            }
+        }
+
+        .contentBox {
+            padding: 24px;
+        }
+    }
+}

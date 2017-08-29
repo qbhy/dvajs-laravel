@@ -15,7 +15,8 @@
         "is_js": "^0.9.0",
         "react": "^15.6.1",
         "react-dom": "^15.6.1",
-        "react-markdown": "^2.5.0"
+        "react-markdown": "^2.5.0",
+        "recharts": "^1.0.0-alpha.4"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.2",

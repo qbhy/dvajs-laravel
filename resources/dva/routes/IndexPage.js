@@ -25,8 +25,7 @@ class IndexPage extends Component {
         return (
             <div className={styles.container}>
                 <img src={require('../assets/qbhy.png')}/>
-                <h2>dvajs for php</h2>
-                <Link to="/articles">去文章列表</Link>
+                <h2>404</h2>
             </div>
         );
     }

@@ -4,6 +4,7 @@ export default {
     articles: '/articles',
     article: '/article/:id',
     admin: {
-        adminHome: '/admin'
+        adminHome: '/admin',
+        publishArticle: '/admin/publish'
     }
 };
