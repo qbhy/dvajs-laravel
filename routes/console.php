@@ -25,4 +25,4 @@ Artisan::command('blog:init', function () {
         'email' => $blogConfig['email'],
         'role' => \App\User::$roles['admin']
     ]);
-})->describe('Display an inspiring quote');
+})->describe('init blog');

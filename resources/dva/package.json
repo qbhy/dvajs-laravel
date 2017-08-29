@@ -16,7 +16,8 @@
         "react": "^15.6.1",
         "react-dom": "^15.6.1",
         "react-markdown": "^2.5.0",
-        "recharts": "^1.0.0-alpha.4"
+        "recharts": "^1.0.0-alpha.4",
+        "store": "^2.0.12"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.2",

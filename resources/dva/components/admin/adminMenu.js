@@ -21,7 +21,6 @@ export default class AdminMenu extends Component {
                     dva
                 </div>
                 <Menu
-                    defaultSelectedKeys={['chart']}
                     mode="inline"
                     theme="dark"
                     inlineCollapsed={collapsed}>

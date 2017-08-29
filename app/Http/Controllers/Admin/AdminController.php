@@ -11,4 +11,9 @@ class AdminController extends Controller
     {
         return dva($request->path(), '管理员页面');
     }
+
+    public function publish(Request $request)
+    {
+        return dva($request->path(), '发布文章');
+    }
 }
