@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 import store from 'store';
 import delay from '../../utils/delay';
+import publishArticleService from '../../services/publishArticle';
 import {
     Col,
     Card,
@@ -12,6 +13,7 @@ import {
     Button,
     DatePicker,
     TimePicker,
+    message,
 } from 'antd';
 
 const {TextArea} = Input;
@@ -19,7 +21,6 @@ const {TextArea} = Input;
 class PublishArticle extends Component {
     constructor(props) {
         super(props);
-        store.clearAll();
         const editor = store.get('editor') || props.editor;
         this.state = {
             ...editor
@@ -32,15 +33,8 @@ class PublishArticle extends Component {
     }
 
     bindDatetime(name, time, timeString) {
-        console.log(time);
-        this.state[name] = time;
+        this.state[name] = timeString;
         this.setState({});
-    }
-
-    componentDidMount() {
-        delay(500).then(() => {
-            store.clearAll();
-        });
     }
 
     componentWillUnmount() {
@@ -48,23 +42,49 @@ class PublishArticle extends Component {
         this.props.dispatch({type: 'editor/save', editor: {...this.state}});
     }
 
+    onPublish() {
+        const {title, content, time, date} = this.state;
+        if (title === "") {
+            return message.warning('请填写标题!');
+        }
+        if (content === "") {
+            return message.warning('请输入文章内容!');
+        }
+        if (date === "" || time === "") {
+            return message.warning('请填写发布时间!');
+        }
+        const data = {
+            title,
+            content,
+            publishedAt: `${date} ${time}`
+        };
+        publishArticleService(data).then(() => {
+            message.success('文章发布成功!');
+            this.setState({
+                title: '',
+                content: '',
+                date: '',
+                time: '',
+            });
+        });
+    }
+
     render() {
         const {content, title, date, time} = this.state;
         return (
             <div>
-
                 <Card style={{marginBottom: 10}} title="文章标题">
                     <Input value={title} onChange={this.onChange.bind(this, 'title')}/>
                 </Card>
 
                 <Card style={{marginBottom: 10}} title="发布时间">
-                    <DatePicker value={date} onChange={this.bindDatetime.bind(this, 'date')}/>
-                    <TimePicker value={time} onChange={this.bindDatetime.bind(this, 'time')}/>
+                    <DatePicker onChange={this.bindDatetime.bind(this, 'date')}/> <TimePicker
+                    onChange={this.bindDatetime.bind(this, 'time')}/>
                 </Card>
 
                 <Card title="文章内容">
                     <Col span={12}>
-                        <TextArea autosize={true} onChange={this.onChange.bind(this, 'content')} defaultValue={content}
+                        <TextArea autosize={true} onChange={this.onChange.bind(this, 'content')} value={content}
                                   className={styles.editor}/>
                     </Col>
                     <Col span={12} className={classNames('markdown-body', styles.preview)}>
@@ -73,7 +93,7 @@ class PublishArticle extends Component {
                 </Card>
 
                 <div className={styles.actions}>
-                    <Button>发布文章</Button>
+                    <Button onClick={() => this.onPublish()}>发布文章</Button>
                 </div>
             </div>
         );

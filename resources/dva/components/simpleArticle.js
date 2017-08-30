@@ -26,7 +26,7 @@ export default class SimpleArticle extends Component {
                 </section>
                 <footer className={styles.footerBox}>
                     <a href="javascript:;">发表评论</a>
-                    <a href="javascript:;">阅读全文</a>
+                    <Link to={route('article', {id: article.id})}>阅读全文</Link>
                 </footer>
             </article>
         );

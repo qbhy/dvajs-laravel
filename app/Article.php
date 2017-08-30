@@ -11,9 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $user_id
  * @property string $title
- * @property string $abstract
  * @property string $content
- * @property string $published_at
  * @property string|null $deleted_at
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
@@ -26,12 +24,28 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereUserId($value)
+ * @property string $abstract
+ * @property \Carbon\Carbon $published_at
  */
 class Article extends Model
 {
     protected $dates = [
         'published_at'
     ];
+
+    protected $fillable = [
+        'title', 'content', 'published_at', 'user_id'
+    ];
+
+    public function getAbstractAttribute()
+    {
+        $content = strip_tags(convertToHtml($this->content));
+
+        if (strlen($content) > 250) {
+            $content =  substr($content, 0, 250);
+        }
+        return $content . '...';
+    }
 
 
 }

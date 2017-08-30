@@ -17,7 +17,6 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
-            $table->string('abstract');
             $table->text('content');
             $table->timestamp('published_at');
             $table->softDeletes();

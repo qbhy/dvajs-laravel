@@ -13,7 +13,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect()->route('articles');
         }
-        return dva($request->path(), '管理员登录');
+        return dva('管理员登录');
     }
 
     public function logout(Request $request)

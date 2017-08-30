@@ -3,9 +3,9 @@
 use App\Dva\Dva;
 
 if (!function_exists('dva')) {
-    function dva($url, $title, $state = [])
+    function dva($title, $state = [])
     {
-        return Dva::render($url, $title, $state);
+        return Dva::render(Request::path(), $title, $state);
     }
 }
 

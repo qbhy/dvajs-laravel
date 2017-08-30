@@ -16,5 +16,11 @@ use Illuminate\Http\Request;
 
 Route::post('/login', 'Auth\LoginController@apiLogin')->name('api.login');
 
-
 Route::post('/fetchArticle', 'Api\ArticleController@fetchArticle')->name('fetchArticle');
+
+/**
+ * 管理员用API
+ */
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::post('publish', 'Api\ArticleController@publish')->name('admin.publish');
+});

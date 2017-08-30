@@ -9,11 +9,11 @@ class AdminController extends Controller
 {
     public function home(Request $request)
     {
-        return dva($request->path(), '管理员页面');
+        return dva('管理员页面');
     }
 
     public function publish(Request $request)
     {
-        return dva($request->path(), '发布文章');
+        return dva('发布文章');
     }
 }

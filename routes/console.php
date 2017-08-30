@@ -17,6 +17,11 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 
+
+Artisan::command('test', function () {
+    dd(\Carbon\Carbon::now());
+});
+
 Artisan::command('blog:init', function () {
     $blogConfig = config('blog');
     \App\User::create([

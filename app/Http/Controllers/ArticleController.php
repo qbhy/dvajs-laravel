@@ -17,17 +17,18 @@ class ArticleController extends Controller
                 'activeIndex' => null
             ]
         ];
-        return dva($request->path(), '测试标题a', $state);
+        return dva('测试标题a', $state);
     }
 
-    public function articleInfo($id, Request $request)
+    public function articleInfo($id)
     {
+        $article = ArticleService::find($id);
         $state = [
             'article' => [
-                'list' => ArticleService::articles(),
+                'list' => [$id => $article],
                 'activeIndex' => $id
             ]
         ];
-        return dva($request->path(), '测试标题a', $state);
+        return dva('测试标题a', $state);
     }
 }
