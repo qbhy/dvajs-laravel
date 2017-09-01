@@ -3,6 +3,7 @@ import {connect} from 'dva';
 import styles from './container.scss';
 import Profile from '../../components/profile';
 import Search from '../../components/search';
+import {Spin} from 'antd';
 
 
 class Articles extends Component {
@@ -12,23 +13,25 @@ class Articles extends Component {
     }
 
     render() {
-        const {owner, children} = this.props;
+        const {owner, children, article} = this.props;
         return (
-            <div>
-                <Profile user={owner}/>
-                <div className={styles.contentBox}>
+            <Spin tip="正在加载中..." spinning={article.loading}>
+                <div>
+                    <Profile user={owner}/>
+                    <div className={styles.contentBox}>
 
-                    <div className={styles.header}>
-                        <div className={styles.actions}>
-                            <Search placeholder="请输入关键词进行搜索" onSearch={(text) => {
-                                console.log(text);
-                            }}/>
+                        <div className={styles.header}>
+                            <div className={styles.actions}>
+                                <Search placeholder="请输入关键词进行搜索" onSearch={(text) => {
+                                    console.log(text);
+                                }}/>
+                            </div>
+                            <h2>{owner.name}的博客</h2>
                         </div>
-                        <h2>{owner.name}的博客</h2>
+                        {children}
                     </div>
-                    {children}
                 </div>
-            </div>
+            </Spin>
         );
     }
 }

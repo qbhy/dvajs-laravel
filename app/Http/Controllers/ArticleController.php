@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\ArticleService;
 use Carbon\Carbon;
+use const false;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,7 +15,9 @@ class ArticleController extends Controller
         $state = [
             'article' => [
                 'list' => ArticleService::articles(),
-                'activeIndex' => null
+                'activeIndex' => null,
+                'initialised' => true,
+                'loading' => false
             ]
         ];
         return dva('测试标题a', $state);
@@ -26,7 +29,9 @@ class ArticleController extends Controller
         $state = [
             'article' => [
                 'list' => [$id => $article],
-                'activeIndex' => $id
+                'activeIndex' => $id,
+                'initialised' => false,
+                'loading' => false
             ]
         ];
         return dva('测试标题a', $state);

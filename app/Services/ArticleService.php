@@ -33,7 +33,7 @@ class ArticleService
          * @var Article $article
          */
         $articles = Article::where('published_at', '<', Carbon::now())
-            ->orderBy('created_at', 'asc')
+            ->orderBy('id', 'desc')
             ->paginate();
         $articleList = [];
         foreach ($articles as $article) {

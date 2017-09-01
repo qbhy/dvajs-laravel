@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 Route::post('/login', 'Auth\LoginController@apiLogin')->name('api.login');
 
 Route::post('/fetchArticle', 'Api\ArticleController@fetchArticle')->name('fetchArticle');
+Route::post('/fetchArticleList', 'Api\ArticleController@fetchArticleList')->name('fetchArticleList');
 
 /**
  * 管理员用API

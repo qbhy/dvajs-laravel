@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
+import {Link, browserHistory} from 'dva/router';
 import styles from './admin.scss';
 import delay from '../../utils/delay';
 import AdminMenu from '../../components/admin/adminMenu';
+import route from '../../utils/route';
 import {
     message,
     Icon,
@@ -22,14 +24,18 @@ class Admin extends Component {
     }
 
     componentWillMount() {
-        const {user} = this.props;
-
+        const {user, article} = this.props;
+        if (!user) {
+            browserHistory.replace(route('login'));
+        }
         delay(500).then(() => {
             if (!user) {
                 message.warning('你还没有登录~');
+                browserHistory.replace(route('login'));
             }
             if (!user.isAdmin) {
                 message.info('您不是管理员!');
+                browserHistory.replace(route('login'));
             }
             message.info('欢迎管理员登录');
         });
@@ -48,7 +54,7 @@ class Admin extends Component {
                 <Menu.Item key="3">
                     <a href="javascript:;">
                         <Icon type="logout"/>
-                        <span> 注销登录</span>
+                        <span>注销登录</span>
                     </a>
                 </Menu.Item>
             </Menu>
@@ -65,6 +71,7 @@ class Admin extends Component {
                             <Dropdown placement="bottomCenter" overlay={menu}>
                                 <Avatar src={owner.avatar}/>
                             </Dropdown>
+                            <Link to={route('home')}>去前台</Link>
                         </div>
                     </div>
                     <div className={styles.contentBox}>

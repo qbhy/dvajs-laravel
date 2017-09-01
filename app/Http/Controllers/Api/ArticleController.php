@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Services\ArticleService;
 use Carbon\Carbon;
+use function compact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -33,6 +34,13 @@ class ArticleController extends Controller
         $data['user_id'] = $self->id;
         return ArticleService::publish($data);
 
+    }
+
+    public function fetchArticleList(Request $request)
+    {
+        $articles = ArticleService::articles();
+        $page = $request->get('page', 1);
+        return compact('articles', 'page');
     }
 
 }

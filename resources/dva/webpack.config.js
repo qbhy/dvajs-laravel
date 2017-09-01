@@ -11,7 +11,7 @@ module.exports = {
         path: __dirname + "/../../public/dva",
         filename: '[name].js'
     },
-    // devtool: 'eval-source-map',
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {

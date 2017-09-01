@@ -1,12 +1,13 @@
 import {delay} from '../utils';
-import fetchArticle from '../services/fetchArticle';
 
 export default {
     namespace: 'article',
     state: {
         list: {},
         activeIndex: null,
-        loading: true,
+        initialised: false,
+        loading: false,
+        page: 1,
     },
     reducers: {
         add(state, {article}){
@@ -21,6 +22,17 @@ export default {
             } else {
             }
             state.loading = false;
+            return {...state};
+        },
+        init(state, {articles, page}){
+            state.list = articles;
+            state.page = page;
+            state.loading = false;
+            state.initialised = true;
+            return {...state};
+        },
+        loading(state, {loading}){
+            state.loading = loading;
             return {...state};
         }
     },

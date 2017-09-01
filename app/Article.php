@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Article
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Article extends Model
 {
+    use SoftDeletes;
     protected $dates = [
         'published_at'
     ];
@@ -40,9 +42,8 @@ class Article extends Model
     public function getAbstractAttribute()
     {
         $content = strip_tags(convertToHtml($this->content));
-
-        if (strlen($content) > 250) {
-            $content =  substr($content, 0, 250);
+        if (strlen($content) > 520) {
+            $content = substr($content, 0, 520);
         }
         return $content . '...';
     }

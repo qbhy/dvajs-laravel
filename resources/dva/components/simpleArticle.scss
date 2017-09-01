@@ -5,6 +5,12 @@ $ant-color: #108ee9;
     background: #fff;
     padding: 30px 40px;
     margin-bottom: 60px;
+    transition: all .3s ease;
+    border-radius: 3px;
+
+    &:hover {
+        box-shadow: 0 0 10px #ccc;
+    }
 
     header {
         h3 {

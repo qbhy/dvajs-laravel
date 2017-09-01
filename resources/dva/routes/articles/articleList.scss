@@ -1,5 +1,11 @@
-
 .articlesBox {
     width: 890px;
     margin: -250px auto 0;
+
+    .none {
+        background: #fff;
+        text-align: center;
+        height: 150px;
+        line-height: 150px;
+    }
 }
