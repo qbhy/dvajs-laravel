@@ -42,11 +42,10 @@ class Article extends Model
     public function getAbstractAttribute()
     {
         $content = strip_tags(convertToHtml($this->content));
-        if (strlen($content) > 520) {
-            $content = substr($content, 0, 520);
+        if (strlen($content) > 500) {
+            $content = mb_substr($content, 0, 500);
         }
         return $content . '...';
     }
-
 
 }

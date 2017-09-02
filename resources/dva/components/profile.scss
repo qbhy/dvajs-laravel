@@ -9,6 +9,8 @@ $ant-color: #108ee9;
     background: #f7f7f7;
     z-index: 99;
     box-shadow: 0 0 5px #ccc;
+    display: flex;
+    flex-direction: column;
 
     .head {
         display: flex;
@@ -36,20 +38,34 @@ $ant-color: #108ee9;
         }
     }
 
-    .actions {
+    .actionsBox {
+        flex: 1;
         margin-top: 25px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-between;
 
-        .subscribe {
-            display: inline-block;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            padding: 0 15px;
-            border: 1px solid $ant-color;
-            border-radius: 15px;
-            text-decoration: none;
+        .top {
+            display: flex;
+            justify-content: center;
+            .subscribe {
+                display: inline-block;
+                margin: 5px auto;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                padding: 0 15px;
+                border: 1px solid $ant-color;
+                border-radius: 15px;
+                text-decoration: none;
+            }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            margin: 7px 0;
+
         }
     }
 }
