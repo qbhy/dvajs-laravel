@@ -1,6 +1,12 @@
 <?php
 
 
+/**
+ * oauth 相关路由
+ */
+Route::get('/auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('/auth/github/callback', 'Auth\AuthController@handleProviderCallback');
+
 Route::get('/', 'ArticleController@articles')->name('articles');
 Route::get('/articles', 'ArticleController@articles')->name('articles');
 

@@ -3,9 +3,9 @@ import {connect} from 'dva';
 import styles from './article.scss';
 import fetchArticleService from '../../services/fetchArticle';
 import {Link} from 'dva/router';
-import {route, copyText} from '../../utils';
+import delay from '../../utils/delay';
 import classNames from 'classnames';
-import {Icon, Popover, Tooltip} from 'antd';
+import {Icon, BackTop} from 'antd';
 import Comment from '../../components/comment';
 import ReactMarkdown from 'react-markdown';
 
@@ -63,6 +63,7 @@ class Article extends Component {
                         <div className={styles.comments}>
                             {Article.renderComments(article.comments)}
                         </div>
+                        <BackTop/>
                     </footer>
                 </article>
             );

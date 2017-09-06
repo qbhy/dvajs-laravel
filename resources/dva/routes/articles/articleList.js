@@ -8,7 +8,7 @@ import route from '../../utils/route';
 import fetchArticleListService from '../../services/fetchArticleList';
 import delay from '../../utils/delay';
 import queryParams from '../../utils/queryParams';
-import {message, Spin} from 'antd';
+import {message, Spin, BackTop} from 'antd';
 
 class ArticleList extends Component {
 
@@ -44,6 +44,7 @@ class ArticleList extends Component {
             return (
                 <div className={styles.articlesBox}>
                     {ArticleList.renderArticles(article.list)}
+                    <BackTop/>
                 </div>
             );
         }

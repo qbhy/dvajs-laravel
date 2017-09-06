@@ -12,7 +12,8 @@
         "graham-campbell/markdown": "^8.0",
         "laravel/framework": "5.5.*",
         "laravel/horizon": "^1.0",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "overtrue/laravel-socialite": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
