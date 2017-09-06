@@ -38,7 +38,7 @@ return [
     'github' => [
         'client_id'     => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_SECRET'),
-        'redirect'      => 'http://qbhy.me/socialite/callback.php',
+        'redirect'      => 'http://qbhy.me/auth/github/callback',
     ],
 
 ];
