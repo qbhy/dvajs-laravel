@@ -66,6 +66,9 @@ class PublishArticle extends Component {
                 date: '',
                 time: '',
             });
+        }).catch((err) => {
+            console.log(err);
+            message.warning('发布失败');
         });
     }
 
