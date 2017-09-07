@@ -1,6 +1,13 @@
 <?php
 
 
+use App\Article;
+
+Route::get('/test', function () {
+    dd(Article::all());
+});
+
+
 /**
  * oauth 相关路由
  */
