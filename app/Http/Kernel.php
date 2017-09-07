@@ -4,7 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\EnableCrossRequestMiddleware;
-use Clockwork\Support\Slim\ClockworkMiddleware;
+use Clockwork\Support\Laravel\ClockworkMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
