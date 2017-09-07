@@ -22,7 +22,7 @@ class Admin
         } else {
             return response()->json([
                 'msg' => '你无权访问改接口!'
-            ]);
+            ], 403);
         }
     }
 }
