@@ -10,6 +10,7 @@
         "barryvdh/laravel-ide-helper": "^2.4",
         "doctrine/dbal": "^2.6",
         "graham-campbell/markdown": "^8.0",
+        "itsgoingd/clockwork": "^1.14",
         "laravel/framework": "5.5.*",
         "laravel/horizon": "^1.0",
         "laravel/tinker": "~1.0",

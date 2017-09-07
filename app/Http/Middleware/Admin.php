@@ -20,6 +20,7 @@ class Admin
         if (!is_null($self) && $self->isAdmin()) {
             return $next($request);
         } else {
+            clock()->log('sessions', \Session::all());
             return response()->json([
                 'msg' => '你无权访问改接口!'
             ], 403);

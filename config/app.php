@@ -170,6 +170,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,  //ide-helper
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,     //markdown解析
         Overtrue\LaravelSocialite\ServiceProvider::class,           //第三方登录
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,  //调试神器
 
         /*
          * Application Service Providers...
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Socialite' => Overtrue\LaravelSocialite\Socialite::class,
+        'Clockwork' => Clockwork\Support\Laravel\Facade::class,
     ],
 
 ];
